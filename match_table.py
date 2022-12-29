@@ -20,13 +20,15 @@ def matchTable(im, table):
     """
     # matches the reference table with the given input
     # image for testing generalized Hough Transform
-    m, n = im.shape
-    acc = np.zeros((m+100, n+100))  # acc array requires some extra space
+    # m, n = im.shape
+    m = im.shape[0]
+    n = im.shape[1]
+    acc = np.zeros((m+100, n+100))  # accumulator array requires some extra space
     
     #print(acc.shape)
 
     def findGradient(x, y):
-        if (x != 0):
+        if x != 0:
             return int(np.rad2deg(np.arctan(int(y/x))))
         else:
             return 0
