@@ -12,16 +12,17 @@ from find_maxima import *
 import cv2
 import numpy as np
 
-images = ['Input4Ref.png', 'Input2Ref.png', 'Input3Ref.png']
+images = ['Input1Ref.png', 'Input2Ref.png', 'Input3Ref.png', 'Input4Ref.png']
 '''
 Looping these two images to create separate identification.
 '''
 for img in images:
     
     #This is the smaller image which we have to find in the bigger image.
-    refim = imread(img)
+    refim = cv2.imread(img)
 
-    refim = cv2.cvtColor(refim, cv2.COLOR_BGR2GRAY)
+
+    refim = cv2.cvtColor(refim, cv2.COLOR_RGB2GRAY)
    
     #This is the larger image where we have to search the smaller image.
     im = imread('Input1.png')
