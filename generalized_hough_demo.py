@@ -1,9 +1,5 @@
 #!/usr/bin/env python
 
-__author__ = "Adeel Ahmad"
-__email__ = "adeelahmad14@hotmail.com"
-__status__ = "Production"
-
 from skimage.io import imread, imshow
 import matplotlib.pyplot as plt
 from build_reference_table import *
@@ -21,7 +17,7 @@ for img in images:
     #This is the smaller image which we have to find in the bigger image.
     refim = cv2.imread(img)
 
-
+    #Converting the RGB image to a grayscale image.
     refim = cv2.cvtColor(refim, cv2.COLOR_RGB2GRAY)
    
     #This is the larger image where we have to search the smaller image.
