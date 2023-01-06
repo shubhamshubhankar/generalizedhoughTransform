@@ -15,15 +15,15 @@ def buildRefTable(img):
     """
     table = [[0 for x in range(1)] for y in range(90)]  # creating a empty list
 
-    print(img.shape)
+    #print(img.shape)
     # print(len(table[0]))
     # print(table)
 
     # r will be calculated corresponding to this point
     img_center = [int(img.shape[0] / 2), int(img.shape[1] / 2)]
-    print(img_center)
+    #print(img_center)
 
-    print(img)
+    #print(img)
 
     #  This function takes input one point with x and y coordinates
     #  and then calculate the distance from the center and also 
@@ -70,9 +70,10 @@ def buildRefTable(img):
         table[i].pop(0)
 
     # print("After popping \n")
+    '''
     for i in range(len(table)):
         print(i)
         print(" ")
         print(table[i])
-
+    '''
     return table

@@ -1,8 +1,3 @@
-#!/usr/bin/env python
-
-__author__ = "Adeel Ahmad"
-__email__ = "adeelahmad14@hotmail.com"
-__status__ = "Production"
 
 import numpy as np
 from scipy.ndimage import convolve
@@ -37,10 +32,12 @@ def matchTable(im, table):
     # The column runs from 1 to 306.
 
     for x in range(1, im.shape[0]):
-        for y in range(im.shape[1]):
+        for y in range(1, im.shape[1]):
             
             # Because it's a binary image, all the points which
             # are not black are boundary points.
+            #print("x : ",x , " y: ", y, "\n")
+            #print(im[x])
             if im[x, y] != 0:  # boundary point
                 
                 # Finds the gradient from the current point and
