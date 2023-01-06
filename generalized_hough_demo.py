@@ -6,29 +6,48 @@ from find_maxima import *
 import cv2
 import numpy as np
 from skimage.io import imread, imshow
+import sys
+import getopt
 
-images = ['Input1Ref.png', 'Input2Ref.png', 'Input3Ref.png', 'Input4Ref.png']
+#images = ['Input1Ref.png', 'Input2Ref.png', 'Input3Ref.png', 'Input4Ref.png']
 
 
 if __name__ == "__main__":
-    #Looping these two images to create separate identification.
-    for img in images:
-        
+    try:
+        if len(sys.argv) < 3:
+            print(
+                "\n-----------------------------------------------------------------------------------------------------------------------\n"
+                "This is a python implementation of the Generalized Hough Transform. \n"
+                "Note: It only searches for the reference image of same size and orientation. \n\n"
+                "Usage given below:\n"
+                "python3 generalized_hough_demo.py 'mainImageName' 'referenceImageName'\n\n"
+                "All the arguements in this program are mandatory.\n"
+                "Arguement List:\n"
+                "mainImageName - Path of the image + name of the main(larger) image (String data type). \n"
+                "referenceImageName - Path of the image + name of the reference(smaller) image (String data type).\n"
+                "Example : \n"
+                "python3 generalized_hough_demo.py Input1.png Input1Ref.png\n"
+                "\n----------------------------------------------------------------------------------------------------------------------\n")
+            exit(0)
+        else:
+            mainImageName = sys.argv[1]
+            referenceImageName = sys.argv[2]
+    
         #This is the smaller image which we have to find in the bigger image.
-        refim = cv2.imread(img)
+        referenceImage = cv2.imread(referenceImageName)
         
-        #This is the larger image where we have to search the smaller image.
-        im = cv2.imread('Input1.png')
+        #im = cv2.imread('Input1.png')
+        mainImage = cv2.imread(mainImageName)
         
         #Converting the RGB image to a grayscale image.
-        refim = cv2.cvtColor(refim, cv2.COLOR_RGB2GRAY)
-        im = cv2.cvtColor(im, cv2.COLOR_RGB2GRAY)
+        referenceImage = cv2.cvtColor(referenceImage, cv2.COLOR_RGB2GRAY)
+        mainImage = cv2.cvtColor(mainImage, cv2.COLOR_RGB2GRAY)
         
         #Building the reference table from refim.
-        table = buildRefTable(refim)
+        table = buildRefTable(referenceImage)
 
         # Increase the values in the accumulator table using reference table.
-        acc = matchTable(im, table)
+        acc = matchTable(mainImage, table)
 
         # Find the maximum from the accumulator table
         # val: maximum value found
@@ -45,6 +64,8 @@ if __name__ == "__main__":
         '''
 
         # Function to draw the boxes and plot the accumulator array.
-        drawBoxes(acc, refim, im, val, ridx, cidx)
-
-        
+        drawBoxes(acc, referenceImage, mainImage, val, ridx, cidx)
+    
+    except getopt.error as err:
+        print(str(err))
+            
