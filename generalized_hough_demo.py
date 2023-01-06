@@ -47,13 +47,13 @@ if __name__ == "__main__":
         table = buildRefTable(referenceImage)
 
         # Increase the values in the accumulator table using reference table.
-        acc = matchTable(mainImage, table)
+        accumulatorArray = matchTable(mainImage, table)
 
         # Find the maximum from the accumulator table
         # val: maximum value found
-        # ridx: row index of the maxval
-        # cidx: column index of the maxval
-        val, ridx, cidx = findMaxima(acc)
+        # rowIndex: row index of the maxval
+        # colIndex: column index of the maxval
+        maximaValue, rowIndex, colIndex = findMaxima(accumulatorArray)
 
         '''
         # Printing the values with the rows and cols.
@@ -64,7 +64,7 @@ if __name__ == "__main__":
         '''
 
         # Function to draw the boxes and plot the accumulator array.
-        drawBoxes(acc, referenceImage, mainImage, val, ridx, cidx)
+        drawBoxes(accumulatorArray, referenceImage, mainImage, maximaValue, rowIndex, colIndex)
     
     except getopt.error as err:
         print(str(err))

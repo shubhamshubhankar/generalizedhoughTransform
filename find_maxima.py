@@ -1,6 +1,6 @@
 import numpy as np
 
-def findMaxima(acc):
+def findMaxima(accumulatorArray):
     """
     :param acc: accumulator array
     :return:
@@ -10,5 +10,5 @@ def findMaxima(acc):
     """
     #print("argmax ")
     #print(acc.argmax())
-    ridx, cidx = np.unravel_index(acc.argmax(), acc.shape)
-    return [acc[ridx, cidx], ridx, cidx]
+    ridx, cidx = np.unravel_index(accumulatorArray.argmax(), accumulatorArray.shape)
+    return [accumulatorArray[ridx, cidx], ridx, cidx]

@@ -6,21 +6,22 @@ from skimage import io
 import matplotlib.pyplot as plt
 
 
-def buildRefTable(img):
+def buildRefTable(referenceImage):
     """
     builds the reference table for the given input template image
     :param im: input binary image
     :return:
         table = a reconstructed reference table...
     """
-    table = [[0 for x in range(1)] for y in range(90)]  # creating a empty list
+    # creating a empty list for 0 to 90 degree
+    table = [[0 for x in range(1)] for y in range(90)]  
 
     #print(img.shape)
     # print(len(table[0]))
     # print(table)
 
     # r will be calculated corresponding to this point
-    img_center = [int(img.shape[0] / 2), int(img.shape[1] / 2)]
+    img_center = [int(referenceImage.shape[0] / 2), int(referenceImage.shape[1] / 2)]
     #print(img_center)
 
     #print(img)
@@ -42,12 +43,12 @@ def buildRefTable(img):
     # The loop with go over the image and will run from
     # 1 to 69 in the row direction and from 1 to 71 in the
     # column direction.
-    for x in range(img.shape[0] - (filter_size - 1)):
-        for y in range(img.shape[1] - (filter_size - 1)):
+    for x in range(referenceImage.shape[0] - (filter_size - 1)):
+        for y in range(referenceImage.shape[1] - (filter_size - 1)):
             # As our image is a binary image, we will only
             # calculate the distance from the points which are
             # non-zero.
-            if (img[x, y] != 0):
+            if (referenceImage[x, y] != 0):
                 # The distance from the center is called r and the
                 # angle is called theta.
                 theta, r = findAngleDistance(x, y)
