@@ -1,7 +1,7 @@
 
 import numpy as np
 from scipy.ndimage import convolve
-from build_reference_table import *
+from buildReferenceTable import *
 from skimage import io
 import matplotlib.pyplot as plt
 

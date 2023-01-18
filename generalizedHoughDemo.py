@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
-from build_reference_table import *
-from match_table import *
+from buildReferenceTable import *
+from matchTable import *
 from drawBoxes import *
-from find_maxima import *
+from findMaxima import *
 import cv2
 import numpy as np
 from skimage.io import imread, imshow
