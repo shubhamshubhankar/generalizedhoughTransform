@@ -43,6 +43,10 @@ if __name__ == "__main__":
         referenceImage = cv2.cvtColor(referenceImage, cv2.COLOR_RGB2GRAY)
         mainImage = cv2.cvtColor(mainImage, cv2.COLOR_RGB2GRAY)
         
+        # Convert to binary images.
+        ret, referenceImage = cv2.threshold(referenceImage, 70, 255, 0)
+        ret1, mainImage = cv2.threshold(mainImage, 70, 255, 0)
+
         #Building the reference table from refim.
         table = buildRefTable(referenceImage)
 
