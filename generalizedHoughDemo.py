@@ -20,13 +20,13 @@ if __name__ == "__main__":
                 "This is a python implementation of the Generalized Hough Transform. \n"
                 "Note: It only searches for the reference image of same size and orientation. \n\n"
                 "Usage given below:\n"
-                "python3 generalized_hough_demo.py 'mainImageName' 'referenceImageName'\n\n"
+                "python3 generalizedHoughDemo.py 'mainImageName' 'referenceImageName'\n\n"
                 "All the arguements in this program are mandatory.\n"
                 "Arguement List:\n"
                 "mainImageName - Path of the image + name of the main(larger) image (String data type). \n"
                 "referenceImageName - Path of the image + name of the reference(smaller) image (String data type).\n"
                 "Example : \n"
-                "python3 generalized_hough_demo.py Input1.png Input1Ref.png\n"
+                "python3 generalizedHoughDemo.py Input1.png Input1Ref.png\n"
                 "\n----------------------------------------------------------------------------------------------------------------------\n")
             exit(0)
         else:
