@@ -6,8 +6,9 @@ import matplotlib.pyplot as plt
 from skimage.io import imread, imshow
 
 def drawBoxes(accumulatorArray, referenceImage, mainImage, maximaValue, rowIndex, colIndex):
-    # Code for drawing bounding-box in accumulator array...
 
+        # Code for drawing bounding-box in accumulator array of 10*10 size 
+        # where maxima values were found.
         accumulatorArray[rowIndex - 5:rowIndex + 5, colIndex - 5] = maximaValue
         accumulatorArray[rowIndex - 5:rowIndex + 5, colIndex + 5] = maximaValue
 
